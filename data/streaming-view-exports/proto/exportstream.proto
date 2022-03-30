@@ -129,6 +129,16 @@ message ExternalVideoViewRecord {
  optional int32 request_throughput = 113;
 
  optional string stream_type = 114;
+ reserved 115;
+
+ // Mux Video fields
+ optional string asset_id = 116;
+ optional string live_stream_id = 117;
+ optional string playback_id = 118;
+
+ optional int32 live_stream_latency = 119;
+ optional string environment_id = 120;
+ reserved 200 to 299;
 }
 
 message Event {
