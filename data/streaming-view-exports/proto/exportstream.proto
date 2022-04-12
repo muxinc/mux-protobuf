@@ -138,6 +138,7 @@ message ExternalVideoViewRecord {
 
  optional int32 live_stream_latency = 119;
  optional string environment_id = 120;
+ optional string viewer_device_model = 121;
  reserved 200 to 299;
 }
 
