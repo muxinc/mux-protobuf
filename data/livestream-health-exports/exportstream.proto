@@ -1,0 +1,75 @@
+syntax = "proto2";
+
+package exportstream;
+
+option go_package = "github.com/muxinc/mux/data/internal/proto/golang/exportstream/livehealth";
+option java_package = "com.mux.data.internal.proto.exportstream.livehealth";
+
+import "google/protobuf/timestamp.proto";
+
+// The generic live health events
+
+message AudioTrack {
+  optional uint64 bytes_received = 1;
+}
+
+message VideoTrack {
+  optional uint64 stream_start_ms = 1;
+  optional uint64 stream_end_ms = 2;
+  optional uint64 bytes_received = 3;
+  optional uint64 keyframes_received = 4;
+  optional uint64 total_frames_received = 5;
+}
+
+message CaptionTrack {
+  optional uint64 bytes_received = 1;
+  optional uint32 channel_count = 2;
+}
+
+message HealthUpdateEvent {
+  required string environment_id = 1;
+  required string live_stream_id = 2;
+  required string asset_id = 3;
+  optional google.protobuf.Timestamp measurement_start = 4;
+  optional google.protobuf.Timestamp measurement_end = 5;
+  repeated VideoTrack video_tracks = 7;
+  repeated AudioTrack audio_tracks = 8;
+  repeated CaptionTrack caption_tracks = 9;
+}
+
+// RTMP specific metadata messages
+
+message RTMPVideoTrackMetadata {
+  optional string codec_id = 1;
+  optional double data_rate = 2;
+  optional double frame_rate = 3;
+  optional double height = 4;
+  optional double width = 5;
+}
+
+message RTMPAudioTrackMetadata {
+  optional string codec_id = 1;
+  optional double data_rate = 2;
+  optional double channel_count = 3;
+  optional double sample_rate = 4;
+  optional double sample_size = 5;
+}
+
+message RTMPMetadataEvent {
+  required string environment_id = 1;
+  required string live_stream_id = 2;
+  required string asset_id = 3;
+  optional google.protobuf.Timestamp received_time = 4;
+  optional string encoder = 5;
+  optional RTMPVideoTrackMetadata video_track = 6;
+  optional RTMPAudioTrackMetadata audio_track = 7;
+}
+
+// The top level message that customers will receive.
+
+message LiveIngestHealth {
+  oneof event {
+    RTMPMetadataEvent rtmp_metadata_event = 1;
+    HealthUpdateEvent health_update_event = 2;
+  }
+}
