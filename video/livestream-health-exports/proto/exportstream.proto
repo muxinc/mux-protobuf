@@ -1,6 +1,6 @@
 syntax = "proto2";
 
-package exportstream;
+package exportstream.livehealth;
 
 option go_package = "github.com/muxinc/mux/data/internal/proto/golang/exportstream/livehealth";
 option java_package = "com.mux.data.internal.proto.exportstream.livehealth";
