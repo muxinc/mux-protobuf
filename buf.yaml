@@ -1,0 +1,9 @@
+version: v1
+lint:
+  use:
+    - DEFAULT
+  except:
+    - PACKAGE_DIRECTORY_MATCH
+  ignore_only:
+    PACKAGE_VERSION_SUFFIX:
+      - data/streaming-view-exports/proto/exportstream.proto
