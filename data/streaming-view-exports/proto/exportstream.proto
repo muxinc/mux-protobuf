@@ -1,5 +1,8 @@
 syntax = "proto2";
 
+// THIS VERSION IS DEPRECATED
+// USE V2
+
 package exportstream;
 
 option java_package = "com.mux.data.internal.proto.exportstream";
