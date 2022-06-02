@@ -1,0 +1,130 @@
+syntax = "proto2";
+
+package eventstream.v1;
+
+message EventStream {
+  // Definitions match Google Timestamp and Duration well-known-types
+  // google/protobuf/duration.proto
+  message Duration {
+    optional int64 seconds = 1;
+    optional int32 nanos = 2;
+  }
+
+  // google/protobuf/timestamp.proto
+  message Timestamp {
+    optional int64 seconds = 1;
+    optional int32 nanos = 2;
+  }
+
+  message Event {
+    required uint64 sequence_number = 7;
+    required Timestamp server_time = 1;
+    required Timestamp viewer_time = 2;
+    required Duration playhead_time = 3;
+    required string type = 4;
+    oneof info {
+      OrientationInfo orientation_info = 5;
+      RenditionInfo rendition_info = 6;
+    }
+  }
+
+  // Device orientation info
+  message OrientationInfo {
+    required double x = 1;
+    required double y = 2;
+    required double z = 3;
+  }
+
+  // Rendition info
+  message RenditionInfo {
+    optional int64 width = 1;
+    optional int64 height = 2;
+    optional double fps = 3;
+    optional int64 bitrate = 4;
+  }
+  required string id = 83;
+  required string view_id = 1;
+  optional int32 asn = 2;
+  optional string city = 3;
+  optional string continent_code = 4;
+  optional string country_code = 5;
+  optional string country_name = 6;
+  optional int32 error_type_id = 7;
+  optional string experiment_name = 8;
+  optional string ip = 9;
+  optional string ip_crawler_class = 10;
+  optional string isp = 11;
+  optional double latitude = 12;
+  optional double longitude = 13;
+  optional string metro = 14;
+  optional string mux_api_version = 15;
+  optional string mux_embed_version = 16;
+  optional string mux_metrics_endpoints = 17;
+  optional string mux_viewer_id = 18;
+  optional string page_type = 19;
+  optional string page_url = 20;
+  optional string platform_description = 21;
+  optional bool player_autoplay = 22;
+  optional string player_error_code = 23;
+  optional string player_error_message = 24;
+  optional int32 player_height = 25;
+  optional string player_instance_id = 26;
+  optional string player_language = 27;
+  optional string player_mux_plugin_name = 28;
+  optional string player_mux_plugin_version = 29;
+  optional string player_name = 30;
+  optional bool player_preload = 31;
+  optional string player_software = 32;
+  optional string player_software_version = 33;
+  optional string player_source_stream_type = 34;
+  optional string player_version = 35;
+  optional int32 player_view_count = 36;
+  optional int32 player_width = 37;
+  optional string postal_code = 38;
+  optional int32 property_id = 39;
+  optional string region = 40;
+  optional string session_id = 41;
+  optional string cdn = 42;
+  optional string video_content_type = 43;
+  optional int32 video_duration = 44;
+  optional string video_encoding_variant = 45;
+  optional string video_id = 46;
+  optional bool video_is_live = 47;
+  optional string video_language = 48;
+  optional string player_poster = 49;
+  optional string video_producer = 50;
+  optional string video_series = 51;
+  optional string player_source_domain = 52;
+  optional int64 player_source_duration = 53;
+  optional int32 player_source_height = 54;
+  optional string player_source_host_name = 55;
+  optional bool video_source_is_live = 56;
+  optional string player_source_type = 57;
+  optional string player_source_url = 58;
+  optional int32 player_source_width = 59;
+  optional string video_stream_type = 60;
+  optional string video_title = 61;
+  optional string video_variant_id = 62;
+  optional string video_variant_name = 63;
+  optional uint32 view_end = 64;
+  optional uint32 view_start = 65;
+  optional string viewer_application_engine = 66;
+  optional string viewer_application_name = 67;
+  optional string viewer_application_version = 68;
+  optional string viewer_device_category = 69;
+  optional string viewer_device_manufacturer = 70;
+  optional string viewer_device_name = 71;
+  optional string viewer_os_architecture = 72;
+  optional string viewer_os_family = 73;
+  optional string viewer_os_version = 74;
+  optional string viewer_user_agent = 75;
+  optional string viewer_user_id = 76;
+  optional string sub_property_id = 77;
+  optional string preroll_ad_asset_hostname = 78;
+  optional string preroll_ad_tag_hostname = 79;
+  optional bool preroll_played = 80;
+  optional bool preroll_requested = 81;
+  repeated Event events = 82;
+  optional string user_agent_crawler_class = 84;
+  optional string data_center_crawler_name_code = 85;
+}
