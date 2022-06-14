@@ -7,7 +7,6 @@ option go_package = "github.com/muxinc/mux-protobuf/livestreaminputhealth_v1";
 // The top level message that customers will receive.
 
 message LiveStreamInputHealth {
-
   // The generic live health events
 
   message AudioTrack {
