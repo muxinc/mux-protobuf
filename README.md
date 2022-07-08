@@ -10,4 +10,13 @@ Mux exports some data using Protobuf (proto2) encoding. This repo contains the l
 
 ## Available Services
 
-[Mux Data streaming view exports](data/streaming-view-exports)
+
+### Mux Data Protobuf Schemas
+[Playback Event](playback_event)
+
+[Video View](video_view)
+
+
+### Mux Video Protobuf Schemas
+
+[Live Stream Input Health](live_stream_input_health)

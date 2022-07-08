@@ -1,8 +1,8 @@
 syntax = "proto2";
 
-package eventstream.v1;
+package playback_event.v1;
 
-message EventStream {
+message PlaybackEvent {
   // Definitions match Google Timestamp and Duration well-known-types
   // google/protobuf/duration.proto
   message Duration {
@@ -22,10 +22,8 @@ message EventStream {
     required Timestamp viewer_time = 2;
     required Duration playhead_time = 3;
     required string type = 4;
-    oneof info {
-      OrientationInfo orientation_info = 5;
-      RenditionInfo rendition_info = 6;
-    }
+    optional OrientationInfo orientation_info = 5;
+    optional RenditionInfo rendition_info = 6;
   }
 
   // Device orientation info

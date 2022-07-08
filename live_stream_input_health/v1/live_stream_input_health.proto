@@ -1,12 +1,11 @@
 syntax = "proto2";
 
-package livestreaminputhealth.v1;
-
-option go_package = "github.com/muxinc/mux-protobuf/livestreaminputhealth_v1";
+package live_stream_input_health.v1;
 
 // The top level message that customers will receive.
 
 message LiveStreamInputHealth {
+
   // The generic live health events
 
   message AudioTrack {
@@ -59,8 +58,7 @@ message LiveStreamInputHealth {
     optional RTMPVideoTrackMetadata video_track = 6;
     optional RTMPAudioTrackMetadata audio_track = 7;
   }
-  oneof event {
-    RTMPMetadataEvent rtmp_metadata_event = 1;
-    HealthUpdateEvent health_update_event = 2;
-  }
+
+  optional RTMPMetadataEvent rtmp_metadata_event = 1;
+  optional HealthUpdateEvent health_update_event = 2;
 }
