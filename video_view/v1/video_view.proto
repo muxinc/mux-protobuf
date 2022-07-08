@@ -1,20 +1,50 @@
 syntax = "proto2";
 
-// THIS VERSION IS DEPRECATED
-// USE V2
+package video_view.v1;
 
-package exportstream;
+message VideoView {
+  // Definitions match Google Timestamp and Duration well-known-types
+  // google/protobuf/duration.proto
+  message Duration {
+    optional int64 seconds = 1;
+    optional int32 nanos = 2;
+  }
 
-import "google/protobuf/duration.proto";
-import "google/protobuf/timestamp.proto";
+  // google/protobuf/timestamp.proto
+  message Timestamp {
+    optional int64 seconds = 1;
+    optional int32 nanos = 2;
+  }
 
-option java_package = "com.mux.data.internal.proto.exportstream";
+  // Device orientation info
+  message OrientationInfo {
+    required double x = 1;
+    required double y = 2;
+    required double z = 3;
+  }
 
-message ExternalVideoViewRecord {
+  // Rendition info
+  message RenditionInfo {
+    optional int64 width = 1;
+    optional int64 height = 2;
+    optional double fps = 3;
+    optional int64 bitrate = 4;
+  }
+
+  message Event {
+    required uint64 sequence_number = 7;
+    required Timestamp server_time = 1;
+    required Timestamp viewer_time = 2;
+    required Duration playhead_time = 3;
+    required string type = 4;
+    optional OrientationInfo orientation_info = 5;
+    optional RenditionInfo rendition_info = 6;
+  }
+
   required string view_id = 1;
   required string property_id = 2;
-  required google.protobuf.Timestamp view_start = 3; // Timestamp when view started
-  required google.protobuf.Timestamp view_end = 4; // Timestamp when view ended
+  required Timestamp view_start = 3; // Timestamp when view started
+  required Timestamp view_end = 4; // Timestamp when view ended
   repeated Event events = 5; // Events associated with the video-view
 
   // Basic exported fields
@@ -143,31 +173,4 @@ message ExternalVideoViewRecord {
   optional string environment_id = 120;
   optional string viewer_device_model = 121;
   reserved 200 to 299;
-}
-
-message Event {
-  required uint64 sequence_number = 7;
-  required google.protobuf.Timestamp server_time = 1;
-  required google.protobuf.Timestamp viewer_time = 2;
-  required google.protobuf.Duration playhead_time = 3;
-  required string type = 4;
-  oneof info {
-    OrientationInfo orientation_info = 5;
-    RenditionInfo rendition_info = 6;
-  }
-}
-
-// Device orientation info
-message OrientationInfo {
-  required double x = 1;
-  required double y = 2;
-  required double z = 3;
-}
-
-// Rendition info
-message RenditionInfo {
-  optional int64 width = 1;
-  optional int64 height = 2;
-  optional double fps = 3;
-  optional int64 bitrate = 4;
 }
