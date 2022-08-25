@@ -5,7 +5,6 @@ package live_stream_input_health.v1;
 // The top level message that customers will receive.
 
 message LiveStreamInputHealth {
-
   // The generic live health events
 
   message AudioTrack {
