@@ -30,6 +30,8 @@ message LiveStreamInputHealth {
     repeated VideoTrack video_tracks = 7;
     repeated AudioTrack audio_tracks = 8;
     repeated CaptionTrack caption_tracks = 9;
+    optional uint32 asn = 10;
+    optional string asn_name = 11;
   }
 
   // RTMP specific metadata messages
