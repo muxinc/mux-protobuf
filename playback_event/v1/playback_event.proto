@@ -125,4 +125,5 @@ message PlaybackEvent {
   repeated Event events = 82;
   optional string user_agent_crawler_class = 84;
   optional string data_center_crawler_name_code = 85;
+  optional string player_error_context = 86;
 }

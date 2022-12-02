@@ -173,5 +173,13 @@ message VideoView {
   optional string environment_id = 120;
   optional string viewer_device_model = 121;
   optional string mux_embed = 122;
+  optional string custom_6 = 123;
+  optional string custom_7 = 124;
+  optional string custom_8 = 125;
+  optional string custom_9 = 126;
+  optional string custom_10 = 127;
+  optional string drm_type = 128;
+  optional int32 dropped_frames = 129;
+  optional string player_error_context = 130;
   reserved 200 to 299;
 }
