@@ -29,6 +29,16 @@ message VideoView {
     optional int64 height = 2;
     optional double fps = 3;
     optional int64 bitrate = 4;
+    optional string codec = 5;
+    optional string rendition_name = 6;
+  }
+
+  // Error Info
+  message ErrorInfo {
+    optional string error_type = 1;
+    optional string error_code = 2;
+    optional string error_message = 3;
+    optional string error_context = 4;
   }
 
   message Event {
@@ -39,6 +49,7 @@ message VideoView {
     required string type = 4;
     optional OrientationInfo orientation_info = 5;
     optional RenditionInfo rendition_info = 6;
+    optional ErrorInfo error_info = 8;
   }
 
   required string view_id = 1;
@@ -173,5 +184,12 @@ message VideoView {
   optional string environment_id = 120;
   optional string viewer_device_model = 121;
   optional string mux_embed = 122;
+  optional string custom_6 = 123;
+  optional string custom_7 = 124;
+  optional string custom_8 = 125;
+  optional string custom_9 = 126;
+  optional string custom_10 = 127;
+  optional string view_drm_type = 128;
+  optional int32 view_dropped_frame_count = 129;
   reserved 200 to 299;
 }
