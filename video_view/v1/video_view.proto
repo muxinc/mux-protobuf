@@ -33,14 +33,6 @@ message VideoView {
     optional string rendition_name = 6;
   }
 
-  // Error Info
-  message ErrorInfo {
-    optional string error_type = 1;
-    optional string error_code = 2;
-    optional string error_message = 3;
-    optional string error_context = 4;
-  }
-
   message Event {
     required uint64 sequence_number = 7;
     required Timestamp server_time = 1;
@@ -49,7 +41,6 @@ message VideoView {
     required string type = 4;
     optional OrientationInfo orientation_info = 5;
     optional RenditionInfo rendition_info = 6;
-    optional ErrorInfo error_info = 8;
   }
 
   required string view_id = 1;
