@@ -41,6 +41,15 @@ message VideoView {
     optional string error_context = 4;
   }
 
+  // Ad Info
+  message AdInfo {
+    optional string ad_asset_url = 1;
+    optional string ad_tag_url = 2;
+    optional string ad_creative_id = 3;
+    optional string ad_id = 4;
+    optional string ad_universal_id = 5;
+  }
+
   message Event {
     required uint64 sequence_number = 7;
     required Timestamp server_time = 1;
@@ -50,6 +59,7 @@ message VideoView {
     optional OrientationInfo orientation_info = 5;
     optional RenditionInfo rendition_info = 6;
     optional ErrorInfo error_info = 8;
+    optional AdInfo ad_info = 9;
   }
 
   required string view_id = 1;
