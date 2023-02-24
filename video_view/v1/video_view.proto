@@ -201,5 +201,6 @@ message VideoView {
   optional string custom_10 = 127;
   optional string view_drm_type = 128;
   optional int32 view_dropped_frame_count = 129;
+  optional bool view_has_ad = 130;
   reserved 200 to 299;
 }
