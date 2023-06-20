@@ -59,14 +59,14 @@ message VideoView {
     optional string request_error_text = 6;
     optional string request_id = 7;
   }
-  
+
   message RequestCanceledInfo {
     optional string request_url = 1;
     optional string request_hostname = 2;
     optional string request_type = 3;
     optional string request_cancel = 4;
   }
-  
+
   message RequestCompletedInfo {
     optional string request_url = 1;
     optional string request_hostname = 2;
