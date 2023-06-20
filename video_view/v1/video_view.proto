@@ -50,6 +50,40 @@ message VideoView {
     optional string ad_universal_id = 5;
   }
 
+  message RequestFailedInfo {
+    optional string request_url = 1;
+    optional string request_hostname = 2;
+    optional string request_type = 3;
+    optional string request_error = 4;
+    optional int64 request_error_code = 5;
+    optional string request_error_text = 6;
+    optional string request_id = 7;
+  }
+
+  message RequestCanceledInfo {
+    optional string request_url = 1;
+    optional string request_hostname = 2;
+    optional string request_type = 3;
+    optional string request_cancel = 4;
+  }
+
+  message RequestCompletedInfo {
+    optional string request_url = 1;
+    optional string request_hostname = 2;
+    optional string request_type = 3;
+    optional int64 request_start = 4;
+    optional int64 request_response_start = 5;
+    optional int64 request_response_end = 6;
+    optional int64 request_bytes_loaded = 7;
+    optional string request_labeled_bitrate = 8;
+    optional string request_id = 9;
+    optional int64 request_current_level = 10;
+    optional int64 request_media_duration = 11;
+    optional int64 request_video_width = 12;
+    optional int64 request_video_height = 13;
+    optional int64 request_media_start_time = 14;
+  }
+
   message Event {
     required uint64 sequence_number = 7;
     required Timestamp server_time = 1;
@@ -60,6 +94,9 @@ message VideoView {
     optional RenditionInfo rendition_info = 6;
     optional ErrorInfo error_info = 8;
     optional AdInfo ad_info = 9;
+    optional RequestFailedInfo request_failed_info = 10;
+    optional RequestCanceledInfo request_canceled_info = 11;
+    optional RequestCompletedInfo request_completed_info = 12;
   }
 
   required string view_id = 1;
