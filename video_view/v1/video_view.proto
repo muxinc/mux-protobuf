@@ -39,6 +39,8 @@ message VideoView {
     optional string error_code = 2;
     optional string error_message = 3;
     optional string error_context = 4;
+    optional string error_severity = 5;
+    optional bool is_business_exception = 6;
   }
 
   // Ad Info
