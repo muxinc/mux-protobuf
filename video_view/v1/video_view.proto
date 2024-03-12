@@ -39,6 +39,8 @@ message VideoView {
     optional string error_code = 2;
     optional string error_message = 3;
     optional string error_context = 4;
+    optional string error_severity = 5;
+    optional bool is_business_exception = 6;
   }
 
   // Ad Info
@@ -231,6 +233,7 @@ message VideoView {
   optional string environment_id = 120;
   optional string viewer_device_model = 121;
   optional string mux_embed = 122;
+  // new custom fields
   optional string custom_6 = 123;
   optional string custom_7 = 124;
   optional string custom_8 = 125;
@@ -240,5 +243,21 @@ message VideoView {
   optional int32 view_dropped_frame_count = 129;
   optional bool view_has_ad = 130;
   optional bool video_startup_failure = 131;
+  // ad metrics v2
+  optional int32 ad_attempt_count = 132;
+  optional int32 ad_break_count = 133;
+  optional int32 ad_break_error_count = 134;
+  optional float ad_break_error_percentage = 135;
+  optional int32 ad_error_count = 136;
+  optional float ad_error_percentage = 137;
+  optional int32 ad_impression_count = 138;
+  optional int32 ad_startup_error_count = 139;
+  optional float ad_startup_error_percentage = 140;
+  optional int32 ad_exit_before_start_count = 141;
+  optional float ad_exit_before_start_percentage = 142;
+  // non-fatal errors
+  optional int32 playback_failure_error_type_id = 143;
+  optional int32 playback_business_exception_error_type_id = 144;
+  optional int32 video_startup_business_exception_error_type_id = 145;
   reserved 200 to 299;
 }
