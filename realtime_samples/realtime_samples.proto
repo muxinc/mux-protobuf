@@ -1,0 +1,89 @@
+syntax = "proto2";
+
+package com.mux.realtime;
+
+option go_package = "github.com/muxinc/mux/data/proto/golang/realtime";
+
+// Make our own timestamp, since we are trapped in
+// Protobuf 2.x for the time being.
+message Timestamp {
+  optional int64 seconds = 1;
+  optional int32 nanos = 2;
+}
+
+message Samples {
+  repeated Sample samples = 1;
+}
+
+message Sample {
+  // A v4 UUID Mux used to identify this view. Use the view_id field instead.
+  optional bytes view_id_raw = 1 [deprecated = true];
+  // The IP address of the client as seen by Mux servers. Use the ip field instead.
+  // Either 4 or 8 bytes.
+  optional bytes ip_raw = 2 [deprecated = true];
+  // The mask applied to the IP address. If omitted, /24 was used.
+  optional uint32 ip_mask = 3;
+  // A shared Mux/Cedexis customer ID.
+  optional uint64 customer_id = 4;
+  repeated Record records = 5;
+  optional Source source = 6;
+  // A v4 UUID string Mux used to identify this view.
+  optional string view_id = 7;
+  // The IP address string of the client as seen by Mux servers.
+  optional string ip = 8;
+  // Provides ASN to aid in troubleshooting ISP/CDN issues
+  optional int64 asn = 9;
+  // Operating System
+  optional string viewer_os_family = 10;
+  // Operating System Version
+  optional string viewer_os_version = 11;
+  // Unused
+  optional string player_source_stream_type = 12 [deprecated = true];
+  // Player Name
+  optional string player_name = 13;
+  // Device Category (tv, mobile, etc)
+  optional string viewer_device_category = 14;
+  // Has Ads
+  optional bool view_has_ad = 15;
+  // Video Startup Failure
+  optional bool video_startup_failure = 16;
+  optional bool exit_before_video_start = 17;
+  optional string sub_property_id = 18;
+  // Stream Type (VOD/Live)
+  optional string stream_type = 19;
+}
+
+message Record {
+  // Timestamp representing the start time of the sample
+  optional Timestamp start = 1;
+  // Duration of the sample window
+  optional uint32 duration_ms = 2;
+  repeated Metric metrics = 3;
+}
+
+message Source {
+  // The hostname including the protocol used to serve such as:
+  // https://cdn.domain.com
+  optional string hostname = 1;
+  // The IP address that the client resolved, if available.
+  optional bytes ip = 2;
+  // If we are able to identify additional CDN information such as the
+  // X-Served-By, X-Cache or Via headers, it may be included here.
+  optional string host_id = 3;
+}
+
+message Metric {
+  enum Type {
+    UNKNOWN = 0;
+    START_LATENCY_MS = 1;
+    EXIT_BEFORE_VIDEO_START = 2;
+    WATCH_DURATION_MS = 3;
+    SEEK_LATENCY_MS = 4;
+    REBUFFER_DURATION_MS = 5;
+    REBUFFER_COUNT = 6;
+    PLAYBACK_ERROR = 7;
+    TOTAL_BITS = 8; // currently unused
+  }
+  optional Type type = 1;
+  optional int64 value = 2;
+}
