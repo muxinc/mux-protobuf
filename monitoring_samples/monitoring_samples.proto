@@ -1,6 +1,6 @@
 syntax = "proto2";
 
-package monitoring_samples.v1;
+package monitoring_samples;
 
 message Timestamp {
   optional int64 seconds = 1;
