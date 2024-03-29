@@ -69,9 +69,7 @@ message Source {
 }
 
 message Metric {
-  // buf:lint:ignore ENUM_VALUE_PREFIX
   enum Type {
-    // buf:lint:ignore ENUM_ZERO_VALUE_SUFFIX
     UNKNOWN = 0;
     START_LATENCY_MS = 1;
     EXIT_BEFORE_VIDEO_START = 2;
