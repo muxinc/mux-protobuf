@@ -18,8 +18,7 @@ message Sample {
   // Either 4 or 8 bytes.
   optional bytes ip_raw = 2 [deprecated = true];
   // The mask applied to the IP address. If omitted, /24 was used.
-  optional uint32 ip_mask = 3;
-  // A shared Mux/Cedexis customer ID.
+  optional uint32 ip_mask = 3 [deprecated = true];
   optional uint64 customer_id = 4;
   repeated Record records = 5;
   optional Source source = 6;

@@ -6,7 +6,7 @@
 
 # Mux Data Monitoring Samples
 
-Mux provides a mechanism for partners to subscribe to realtime video view level datastream of events and measurements related to the quality of service for integrated customers. Monitoring Samples are provided with 30 second granularity. This can be used to identify service-level problems, such as widespread rebuffering or playback failures. Monitoring Samples includes information about the CDN, so another common use case is to analyze traffic and perform CDN optimization on poorly performing groups of views.
+Mux provides a mechanism for partners to subscribe to real-time video view level datastream of events and measurements related to the quality of service for integrated customers. Monitoring Samples are provided with 30 second granularity. This can be used to identify service-level problems, such as widespread rebuffering or playback failures. Monitoring Samples includes information about the CDN, so another common use case is to analyze traffic and perform CDN optimization on poorly performing groups of views.
 
 The data is delivered in nested Protobuf format. A single stream samples “payload” may contain multiple samples from both time ranges and customer id’s.
 
