@@ -259,5 +259,11 @@ message VideoView {
   optional int32 playback_failure_error_type_id = 143;
   optional int32 playback_business_exception_error_type_id = 144;
   optional int32 video_startup_business_exception_error_type_id = 145;
+  // ad metrics v3
+  optional int32 ad_playback_failure_error_type_id = 146;
+  optional int32 view_content_startup_time = 147;
+  optional int32 ad_preroll_startup_time = 148;
+  optional int32 ad_playing_time = 149;
+  optional int32 view_content_playing_time = 150;
   reserved 200 to 299;
 }
