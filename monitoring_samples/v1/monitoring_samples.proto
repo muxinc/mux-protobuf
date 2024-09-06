@@ -46,6 +46,10 @@ message Sample {
   optional string sub_property_id = 18;
   // Stream Type (VOD/Live)
   optional string stream_type = 19;
+  // View Session ID
+  optional string view_session_id = 20;
+  // Player Error Code
+  optional string player_error_code = 21;
 }
 
 message Record {
