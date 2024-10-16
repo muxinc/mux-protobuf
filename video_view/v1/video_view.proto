@@ -265,5 +265,7 @@ message VideoView {
   optional int32 ad_preroll_startup_time = 148;
   optional int32 ad_playing_time = 149;
   optional int32 view_content_playing_time = 150;
+  // view dropped dimension
+  optional bool view_dropped = 151;
   reserved 200 to 299;
 }

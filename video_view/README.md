@@ -14,6 +14,12 @@ See our [Streaming Exports guide](https://docs.mux.com/guides/data/export-raw-vi
 
 As Mux Data adds new metrics, new versions of the protobuf specification are released. This repository always contains the most up-to-date specification. See our guide on [understanding the data fields](https://docs.mux.com/guides/data/export-raw-video-view-data#understand-the-data-fields) to see a full list of supported metrics.
 
+### Version 11
+
+Added new dimension:
+
+- `view_dropped`
+
 ### Version 10
 
 Added new dimension:
