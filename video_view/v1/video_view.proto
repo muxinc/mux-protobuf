@@ -267,7 +267,7 @@ message VideoView {
   optional int32 view_content_playing_time = 150;
   // view dropped dimension
   optional bool view_dropped = 151;
-    // new custom fields
+  // new custom fields
   optional string custom_11 = 152;
   optional string custom_12 = 153;
   optional string custom_13 = 154;
@@ -278,5 +278,6 @@ message VideoView {
   optional string custom_18 = 159;
   optional string custom_19 = 160;
   optional string custom_20 = 161;
+
   reserved 200 to 299;
 }
