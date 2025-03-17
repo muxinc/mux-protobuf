@@ -16,6 +16,28 @@ As Mux Data adds new metrics, new versions of the protobuf specification are rel
 
 ### Version 12
 
+Added new standard dimensions:
+
+- `used_captions`
+- `used_pip`
+- `video_affiliate`
+- `audio_codec`
+- `video_brand`
+- `video_codec`
+- `video_dynamic_range_type`
+- `view_cdn_edge_pop`
+- `view_cdn_origin`
+- `client_application_name`
+- `client_application_version`
+- `view_drm_level`
+- `time_shift_enabled`
+- `viewer_plan`
+- `viewer_plan_category`
+- `viewer_plan_status`
+- `video_creator_id`
+
+### Version 12
+
 Added more custom dimensions:
 
 - `custom_11`
