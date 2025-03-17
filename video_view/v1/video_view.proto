@@ -278,6 +278,23 @@ message VideoView {
   optional string custom_18 = 159;
   optional string custom_19 = 160;
   optional string custom_20 = 161;
-
+  // new standard dimensions
+  optional bool used_captions = 162; // Boolean indicating if the player used captions during the view
+  optional bool used_pip = 163; // Boolean indicating if the player used Picture in Picture during the view
+  optional string video_affiliate = 164; // Affiliate that the viewer is watching or referred the viewer
+  optional string audio_codec = 165; // What was the codec of the audio that played.
+  optional string video_brand = 166; // The brand associated with the video or the brand of the streaming platform the viewer is using to watch the video.
+  optional string video_codec = 167; // What was the codec of the video that played.
+  optional string video_dynamic_range_type = 168; // The format or type of dynamic range available on the video that played
+  optional string view_cdn_edge_pop = 169; // CDN PoP/Edge Server information
+  optional string view_cdn_origin = 170; // CDN origin region
+  optional string client_application_name = 171; // Name of the customer's application that the viewer is using to watch the content
+  optional string client_application_version = 172; // Version of the customer's application that the viewer is using to watch the content
+  optional string view_drm_level = 173; // Security level of the specific DRM type. Some DRM types do not have levels.
+  optional bool time_shift_enabled = 174; // Boolean indicating if this view had time_shift enabled.
+  optional string viewer_plan = 175; // Name of the viewer's customer-specific subscription plan
+  optional string viewer_plan_category = 176; // Category of the viewer's customer-specific subscription plan
+  optional string viewer_plan_status = 177; // Status of the viewer's customer-specific subscription plan
+  optional string video_creator_id = 178; // String ID of the creator of the video, provided by Mux Video
   reserved 200 to 299;
 }

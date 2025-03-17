@@ -14,6 +14,28 @@ See our [Streaming Exports guide](https://docs.mux.com/guides/data/export-raw-vi
 
 As Mux Data adds new metrics, new versions of the protobuf specification are released. This repository always contains the most up-to-date specification. See our guide on [understanding the data fields](https://docs.mux.com/guides/data/export-raw-video-view-data#understand-the-data-fields) to see a full list of supported metrics.
 
+### Version 13
+
+Added new standard dimensions:
+
+- `used_captions`
+- `used_pip`
+- `video_affiliate`
+- `audio_codec`
+- `video_brand`
+- `video_codec`
+- `video_dynamic_range_type`
+- `view_cdn_edge_pop`
+- `view_cdn_origin`
+- `client_application_name`
+- `client_application_version`
+- `view_drm_level`
+- `time_shift_enabled`
+- `viewer_plan`
+- `viewer_plan_category`
+- `viewer_plan_status`
+- `video_creator_id`
+
 ### Version 12
 
 Added more custom dimensions:
