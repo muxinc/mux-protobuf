@@ -24,6 +24,12 @@ message PlaybackEvent {
     required string type = 4;
     optional OrientationInfo orientation_info = 5;
     optional RenditionInfo rendition_info = 6;
+    optional ErrorInfo error_info = 8;
+    optional AdInfo ad_info = 9;
+    optional RequestFailedInfo request_failed_info = 10;
+    optional RequestCanceledInfo request_canceled_info = 11;
+    optional RequestCompletedInfo request_completed_info = 12;
+    optional CdnChangeInfo cdn_change_info = 13;
   }
 
   // Device orientation info
@@ -39,6 +45,67 @@ message PlaybackEvent {
     optional int64 height = 2;
     optional double fps = 3;
     optional int64 bitrate = 4;
+    optional string codec = 5;
+    optional string rendition_name = 6;
+  }
+
+  // Error Info
+  message ErrorInfo {
+    optional string error_type = 1;
+    optional string error_code = 2;
+    optional string error_message = 3;
+    optional string error_context = 4;
+    optional string error_severity = 5;
+    optional bool is_business_exception = 6;
+  }
+
+  // Ad Info
+  message AdInfo {
+    optional string ad_asset_url = 1;
+    optional string ad_tag_url = 2;
+    optional string ad_creative_id = 3;
+    optional string ad_id = 4;
+    optional string ad_universal_id = 5;
+  }
+
+  message RequestFailedInfo {
+    optional string request_url = 1;
+    optional string request_hostname = 2;
+    optional string request_type = 3;
+    optional string request_error = 4;
+    optional int64 request_error_code = 5;
+    optional string request_error_text = 6;
+    optional string request_id = 7;
+  }
+
+  message RequestCanceledInfo {
+    optional string request_url = 1;
+    optional string request_hostname = 2;
+    optional string request_type = 3;
+    optional string request_cancel = 4;
+  }
+
+  message RequestCompletedInfo {
+    optional string request_url = 1;
+    optional string request_hostname = 2;
+    optional string request_type = 3;
+    optional int64 request_start = 4;
+    optional int64 request_response_start = 5;
+    optional int64 request_response_end = 6;
+    optional int64 request_bytes_loaded = 7;
+    optional string request_labeled_bitrate = 8;
+    optional string request_id = 9;
+    optional int64 request_current_level = 10;
+    optional int64 request_media_duration = 11;
+    optional int64 request_video_width = 12;
+    optional int64 request_video_height = 13;
+    optional int64 request_media_start_time = 14;
+  }
+
+  // CDN change info
+  message CdnChangeInfo {
+    optional string video_cdn = 1;
+    optional string video_previous_cdn = 2;
   }
   required string id = 83;
   required string view_id = 1;
@@ -125,4 +192,5 @@ message PlaybackEvent {
   repeated Event events = 82;
   optional string user_agent_crawler_class = 84;
   optional string data_center_crawler_name_code = 85;
+  optional string player_error_context = 86;
 }

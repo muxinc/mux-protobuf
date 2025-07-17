@@ -86,6 +86,12 @@ message VideoView {
     optional int64 request_media_start_time = 14;
   }
 
+  // CDN change info
+  message CdnChangeInfo {
+    optional string video_cdn = 1;
+    optional string video_previous_cdn = 2;
+  }
+
   message Event {
     required uint64 sequence_number = 7;
     required Timestamp server_time = 1;
@@ -99,6 +105,7 @@ message VideoView {
     optional RequestFailedInfo request_failed_info = 10;
     optional RequestCanceledInfo request_canceled_info = 11;
     optional RequestCompletedInfo request_completed_info = 12;
+    optional CdnChangeInfo cdn_change_info = 13;
   }
 
   required string view_id = 1;
@@ -265,9 +272,7 @@ message VideoView {
   optional int32 ad_preroll_startup_time = 148;
   optional int32 ad_playing_time = 149;
   optional int32 view_content_playing_time = 150;
-  // view dropped dimension
   optional bool view_dropped = 151;
-  // new custom fields
   optional string custom_11 = 152;
   optional string custom_12 = 153;
   optional string custom_13 = 154;
@@ -278,7 +283,6 @@ message VideoView {
   optional string custom_18 = 159;
   optional string custom_19 = 160;
   optional string custom_20 = 161;
-  // new standard dimensions
   optional bool used_captions = 162; // Boolean indicating if the player used captions during the view
   optional bool used_pip = 163; // Boolean indicating if the player used Picture in Picture during the view
   optional string video_affiliate = 164; // Affiliate that the viewer is watching or referred the viewer
@@ -296,5 +300,6 @@ message VideoView {
   optional string viewer_plan_category = 176; // Category of the viewer's customer-specific subscription plan
   optional string viewer_plan_status = 177; // Status of the viewer's customer-specific subscription plan
   optional string video_creator_id = 178; // String ID of the creator of the video, provided by Mux Video
+  repeated string video_cdn_trace = 179; // List of video delivery CDN values, in order seen during the view. Values may be repeated
   reserved 200 to 299;
 }
