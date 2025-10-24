@@ -50,6 +50,7 @@ message VideoView {
     optional string ad_creative_id = 3;
     optional string ad_id = 4;
     optional string ad_universal_id = 5;
+    optional string ad_type = 6;
   }
 
   message RequestFailedInfo {
@@ -90,6 +91,10 @@ message VideoView {
   message CdnChangeInfo {
     optional string video_cdn = 1;
     optional string video_previous_cdn = 2;
+  }
+
+  message PlayingTimeInfo {
+    optional int64 total_playing_time_ms = 1;
   }
 
   message Event {
@@ -301,5 +306,9 @@ message VideoView {
   optional string viewer_plan_status = 177; // Status of the viewer's customer-specific subscription plan
   optional string video_creator_id = 178; // String ID of the creator of the video, provided by Mux Video
   repeated string video_cdn_trace = 179; // List of video delivery CDN values, in order seen during the view. Values may be repeated
+  optional string player_playback_mode = 180; // The current playback mode of the player (e.g., "video", "audio", "pip"). This dimension is updated when a playbackmodechange event is sent.
+  optional string player_playback_mode_data = 181; // Additional metadata associated with the current playback mode. This can contain JSON-encoded data or other contextual information about the playback mode state.
+  map<string, eventstream.PlayingTimeInfo> playback_mode_totals = 182; // Map of total playing time and event count per playback mode for the view. Example format {"fullscreen":{"total_playing_time_ms":60000},"multiview":{"total_playing_time_ms":30000}}
+  map<string, eventstream.PlayingTimeInfo> ad_type_totals = 183; // Map of total ad playing time and event count per ad type for the view. Example format {"preroll":{"total_playing_time_ms":30000},"midroll":{"total_playing_time_ms":15000}}
   reserved 200 to 299;
 }
