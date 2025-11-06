@@ -66,6 +66,7 @@ message PlaybackEvent {
     optional string ad_creative_id = 3;
     optional string ad_id = 4;
     optional string ad_universal_id = 5;
+    optional string ad_type = 6;
   }
 
   message RequestFailedInfo {
