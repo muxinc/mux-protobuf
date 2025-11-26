@@ -14,6 +14,26 @@ See our [Streaming Exports guide](https://docs.mux.com/guides/data/export-raw-vi
 
 As Mux Data adds new metrics, new versions of the protobuf specification are released. This repository always contains the most up-to-date specification. See our guide on [understanding the data fields](https://docs.mux.com/guides/data/export-raw-video-view-data#understand-the-data-fields) to see a full list of supported metrics.
 
+### Version 16
+
+Added new rendition dimensions:
+
+- `player_height_initial`
+- `player_source_bitrate_initial`
+- `player_source_fps_initial`
+- `player_width_initial`
+- `audio_codec_initial`
+- `video_codec_initial`
+- `video_dynamic_range_type_initial`
+- `player_source_bitrate`
+- `player_source_fps`
+
+and new rendition metrics:
+
+- `view_rendition_change_count`
+- `view_rendition_upshift_count`
+- `view_rendition_downshift_count`
+
 ### Version 15
 
 Added new playing time metrics, with playing time calculated per playback mode and ad type:

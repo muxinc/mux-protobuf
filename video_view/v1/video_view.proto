@@ -310,5 +310,17 @@ message VideoView {
   optional string player_playback_mode_data = 181; // Additional metadata associated with the current playback mode. This can contain JSON-encoded data or other contextual information about the playback mode state.
   map<string, PlayingTimeInfo> playback_mode_totals = 182; // Map of total playing time and event count per playback mode for the view. Example format {"fullscreen":{"total_playing_time_ms":60000},"multiview":{"total_playing_time_ms":30000}}
   map<string, PlayingTimeInfo> ad_type_totals = 183; // Map of total ad playing time and event count per ad type for the view. Example format {"preroll":{"total_playing_time_ms":30000},"midroll":{"total_playing_time_ms":15000}}
+  optional int32 view_rendition_change_count = 184; // The total number of rendition changes that occurred during playback, including both upshifts and downshifts in quality.
+  optional int32 view_rendition_upshift_count = 185; // The number of times the video quality shifted upward to a higher quality rendition during playback.
+  optional int32 view_rendition_downshift_count = 186; // The number of times the video quality shifted downward to a lower quality rendition during playback.
+  optional int32 player_height_initial = 187; // Initial height of the player (in pixels) as displayed on the screen.
+  optional int32 player_source_bitrate_initial = 188; // Initial bitrate of the source video.
+  optional float player_source_fps_initial = 189; // Initial framerate of the source video.
+  optional int32 player_width_initial = 190; // Initial width of the player (in pixels) as displayed on the screen.
+  optional string audio_codec_initial = 191; // Initial codec of the audio that played.
+  optional string video_codec_initial = 192; // Initial codec of the video that played.
+  optional string video_dynamic_range_type_initial = 193; // Initial format or type of dynamic range available on the video that played
+  optional int32 player_source_bitrate = 194; // Bitrate of the source video.
+  optional float player_source_fps = 195; // Framerate of the source video.
   reserved 200 to 299;
 }
