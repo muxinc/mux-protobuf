@@ -30,6 +30,8 @@ message PlaybackEvent {
     optional RequestCanceledInfo request_canceled_info = 11;
     optional RequestCompletedInfo request_completed_info = 12;
     optional CdnChangeInfo cdn_change_info = 13;
+    optional PlaybackModeChangeInfo playback_mode_change_info = 14;
+    optional NetworkChangeInfo network_change_info = 15;
   }
 
   // Device orientation info
@@ -108,6 +110,19 @@ message PlaybackEvent {
     optional string video_cdn = 1;
     optional string video_previous_cdn = 2;
   }
+
+  // Playback mode change info
+  message PlaybackModeChangeInfo {
+    optional string player_playback_mode = 1;
+    optional string player_playback_mode_data = 2;
+  }
+
+  // Network change info
+  message NetworkChangeInfo {
+    optional string viewer_connection_type = 1;
+    optional bool viewer_connection_low_data_mode = 2;
+  }
+
   required string id = 83;
   required string view_id = 1;
   optional int32 asn = 2;

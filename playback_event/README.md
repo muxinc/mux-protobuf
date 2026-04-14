@@ -19,6 +19,8 @@ Each event will include the following details:
   - Device orientation info, in the case of an ‘orientationchange’ event
   - Rendition info, in the case of a ‘renditionchange’ event
   - CDNChange info, in the case of a ‘cdnchange’ event
+  - PlaybackModeChange info, in the case of a ‘playbackmodechange’ event
+  - NetworkChange info, in the case of a ‘networkchange’ event
 
 ### Version 1
 
