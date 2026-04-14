@@ -93,6 +93,18 @@ message VideoView {
     optional string video_previous_cdn = 2;
   }
 
+  // Playback mode change info
+  message PlaybackModeChangeInfo {
+    optional string player_playback_mode = 1;
+    optional string player_playback_mode_data = 2;
+  }
+
+  // Network change info
+  message NetworkChangeInfo {
+    optional string viewer_connection_type = 1;
+    optional bool viewer_connection_low_data_mode = 2;
+  }
+
   message PlayingTimeInfo {
     optional int64 total_playing_time_ms = 1;
   }
@@ -111,6 +123,8 @@ message VideoView {
     optional RequestCanceledInfo request_canceled_info = 11;
     optional RequestCompletedInfo request_completed_info = 12;
     optional CdnChangeInfo cdn_change_info = 13;
+    optional PlaybackModeChangeInfo playback_mode_change_info = 14;
+    optional NetworkChangeInfo network_change_info = 15;
   }
 
   required string view_id = 1;
@@ -313,13 +327,13 @@ message VideoView {
   optional int32 view_rendition_change_count = 184; // The total number of rendition changes that occurred during playback, including both upshifts and downshifts in quality.
   optional int32 view_rendition_upshift_count = 185; // The number of times the video quality shifted upward to a higher quality rendition during playback.
   optional int32 view_rendition_downshift_count = 186; // The number of times the video quality shifted downward to a lower quality rendition during playback.
-  optional int32 player_height_initial = 187; // Initial height of the player (in pixels) as displayed on the screen.
-  optional int32 player_source_bitrate_initial = 188; // Initial bitrate of the source video.
-  optional float player_source_fps_initial = 189; // Initial framerate of the source video.
-  optional int32 player_width_initial = 190; // Initial width of the player (in pixels) as displayed on the screen.
-  optional string audio_codec_initial = 191; // Initial codec of the audio that played.
-  optional string video_codec_initial = 192; // Initial codec of the video that played.
-  optional string video_dynamic_range_type_initial = 193; // Initial format or type of dynamic range available on the video that played
+  optional int32 player_height_initial = 187; // Initial height (in pixels) of the source currently loaded in the player, regardless of the size of the player. Derived from the first value of the player_source_height dimension.
+  optional int32 player_source_bitrate_initial = 188; // Initial bitrate of the source video. Derived from the first value of the player_source_bitrate dimension.
+  optional float player_source_fps_initial = 189; // Initial framerate of the source video. Derived from the first value of the player_source_fps dimension.
+  optional int32 player_width_initial = 190; // Initial width (in pixels) of the source currently loaded in the player, regardless of the size of the player. Derived from the first value of the player_source_width dimension.
+  optional string audio_codec_initial = 191; // Initial codec of the audio that played. Derived from the first value of the audio_codec dimension.
+  optional string video_codec_initial = 192; // Initial codec of the video that played. Derived from the first value of the video_codec dimension.
+  optional string video_dynamic_range_type_initial = 193; // Initial format or type of dynamic range available on the video that played. Derived from the first value of the video_dynamic_range_type dimension.
   optional int32 player_source_bitrate = 194; // Bitrate of the source video.
   optional float player_source_fps = 195; // Framerate of the source video.
   reserved 200 to 299;
