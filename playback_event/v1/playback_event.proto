@@ -32,6 +32,8 @@ message PlaybackEvent {
     optional CdnChangeInfo cdn_change_info = 13;
     optional PlaybackModeChangeInfo playback_mode_change_info = 14;
     optional NetworkChangeInfo network_change_info = 15;
+    optional TextTrackChangeInfo text_track_change_info = 16;
+    optional AudioTrackChangeInfo audio_track_change_info = 17;
   }
 
   // Device orientation info
@@ -121,6 +123,25 @@ message PlaybackEvent {
   message NetworkChangeInfo {
     optional string viewer_connection_type = 1;
     optional bool viewer_connection_low_data_mode = 2;
+  }
+
+  // Text track change info
+  message TextTrackChangeInfo {
+    optional bool player_text_track_enabled = 1;
+    optional string player_text_track_type = 2;
+    optional string player_text_track_format = 3;
+    optional string player_text_track_name = 4;
+    optional string player_text_track_language = 5;
+  }
+
+  // Audio track change info
+  message AudioTrackChangeInfo {
+    optional bool player_audio_track_enabled = 1;
+    optional string player_audio_track_name = 2;
+    optional string player_audio_track_language = 3;
+    optional string player_audio_track_codec = 4;
+    optional int64 player_audio_track_bitrate = 5;
+    optional string player_audio_track_channels = 6;
   }
 
   required string id = 83;
