@@ -21,6 +21,8 @@ Each event will include the following details:
   - CDNChange info, in the case of a ‘cdnchange’ event
   - PlaybackModeChange info, in the case of a ‘playbackmodechange’ event
   - NetworkChange info, in the case of a ‘networkchange’ event
+  - TextTrackChange info, in the case of a ‘texttrackchange’ event
+  - AudioTrackChange info, in the case of an ‘audiotrackchange’ event
 
 ### Version 1
 
